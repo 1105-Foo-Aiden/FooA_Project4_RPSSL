@@ -13,25 +13,43 @@
   </head>
   <link rel="stylesheet" href="./styles/style.css" />
   <body>
-    <img
-      src="./Assets/RPSLS.jpeg"
-      alt="Da Rules: Rock beats Paper and Lizard, Spock beats Scissors and Rock, Paper beats rock and Spock, Lizard beats Spock and paper, and scissors beats paper and lizard "
-    />
-    <br />
-
-    <input
-      type="text"
-      id="userSelection"
-      placeholder="Please enter your choice"
-    />
-
     <div class="container-fluid">
+      <img
+        src="./Assets/RPSLS.jpeg"
+        alt="Da Rules: Rock beats Paper and Lizard, Spock beats Scissors and Rock, Paper beats rock and Spock, Lizard beats Spock and paper, and scissors beats paper and lizard "
+      />
+      <br />
+
+      <div class="col">
+        <button id="difficulty" class="btn btn-dark">Best of: 1</button>
+      </div>
+      <div class="col">
+        <button id="Player2Btn" class="btn btn-dark">Versus Player</button>
+      </div>
+      <br /><br />
+      <div class="row">
+        <div class="col">
+          <input
+            type="text"
+            id="userSelection"
+            placeholder="Please enter your choice"
+          />
+        </div>
+        <div class="col">
+          <input
+          type="text"
+          id="player2Selection"
+          placeholder="Please enter your choice"
+        />
+        </div>
+      </div>
+      <br />
       <div class="row">
         <div class="col">
           <h1 id="userScore">Your Score:</h1>
         </div>
         <div class="col">
-            <h1 id="endResult"></h1>
+          <h1 id="endResult"></h1>
         </div>
         <div class="col">
           <h1 id="CPUScore">Computer score:</h1>
