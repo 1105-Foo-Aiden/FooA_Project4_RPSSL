@@ -36,13 +36,15 @@ player2.addEventListener("click", () => {
 });
 
 difficulty.addEventListener("click", () => {
+  ComputerScore = 0;
+  UserScore = 0;
   ResetGame();
   z++;
-  difficulty.innerText = `Best of: ${winningScores[z]}`;
+  difficulty.innerText = `Best of ${winningScores[z]}`;
 
   if (z == winningScores.length) {
     z = 0;
-    difficulty.innerText = `Best of: ${winningScores[0]}`;
+    difficulty.innerText = `Best of ${winningScores[0]}`;
   }
 });
 
@@ -56,21 +58,17 @@ const APICall = async () => {
 
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && player2Bool == true) {
-    player1 = userInput.value;
+    player1 = userInput.value.toLowerCase();
+    endResult.textContent = " Player 2 please enter your choice";
     userInput.value = "";
-    if (choices.contains(player1.toLowerCase())) {
-      endResult.textContent = " Player 2 please enter your choice";
-    } else {
-      endResult.textContent = "";
-    }
-  } else if (e.key === "enter") {
+  } else if (e.key === "Enter") {
     OnePlayerGame(userInput.value);
     userInput.value = "";
   }
 });
 
 player2Input.addEventListener("keydown", (e) => {
-  if (e.key == "enter") {
+  if (e.key == "Enter") {
     TwoPlayerGame(player1, player2Input.value);
     player2Input.value = "";
   }
@@ -79,48 +77,56 @@ player2Input.addEventListener("keydown", (e) => {
 APICall();
 
 const ResetGame = () => {
+  gameOver = false;
+  if (player2Bool) {
+    CPUScore.textContent = `Player 2 Score: ${ComputerScore}`;
+  } else {
+    CPUScore.textContent = `Computer Score: ${ComputerScore}`;
+  }
+
+  userScore.textContent = `Player 1 Score: ${UserScore}`;
   ComputerScore = 0;
   UserScore = 0;
-  CPUScore.textContent = `Computer Score: ${ComputerScore}`;
-  userScore.textContent = `Player 1 Score: ${UserScore}`;
 };
 
 const OnePlayerGame = (x) => {
-  do {
-    x = x.toLowerCase();
-    result = result.toLowerCase();
+  userScore.textContent = `Player 1 Score: ${UserScore}`;
+  CPUScore.textContent = `Computer Score: ${ComputerScore}`;
+  APICall();
+  x = x.toLowerCase();
+  result = result.toLowerCase();
 
-    if (choices.includes(x)) {
-      APICall();
-      result = result.toLowerCase();
-      switch (x) {
-        case "scissors":
-          Scissors(result);
-          break;
-        case "paper":
-          Paper(result);
-          break;
-        case "rock":
-          Rock(result);
-          break;
-        case "spock":
-          Spock(result);
-          break;
-        case "lizard":
-          Lizard(result);
-          break;
-      }
-    } else {
-      endResult.textContent =
-        "Please enter a valid option, see above for details";
+  if (choices.includes(x)) {
+    result = result.toLowerCase();
+    switch (x) {
+      case "scissors":
+        Scissors(result);
+        break;
+      case "paper":
+        Paper(result);
+        break;
+      case "rock":
+        Rock(result);
+        break;
+      case "spock":
+        Spock(result);
+        break;
+      case "lizard":
+        Lizard(result);
+        break;
     }
-  } while (!gameOver);
-  if (ComputerScore > winningScores[z] / 2) {
-    endResult.innerText = "The computer has won, better luck next time!";
-    ResetGame();
-  } else if (UserScore > winningScores[z] / 2) {
-    endResult.innerText = "You beat the computer, congratulations!";
-    ResetGame();
+  } else {
+    endResult.textContent =
+      "Please enter a valid option, see above for details";
+  }
+  if (gameOver) {
+    if (ComputerScore > winningScores[z] / 2) {
+      endResult.innerText = "The computer has won, better luck next time!";
+      ResetGame();
+    } else if (UserScore > winningScores[z] / 2) {
+      endResult.innerText = "You beat the computer, congratulations!";
+      ResetGame();
+    }
   }
 };
 
@@ -216,39 +222,40 @@ const Lizard = (ComputerChoice) => {
 };
 
 const TwoPlayerGame = (x, y) => {
-  do {
-    x = x.toLowerCase();
-    y = y.toLowerCase();
-
-    if (choices.includes(x) && choices.includes(y)) {
-      switch (x) {
-        case "scissors":
-          Scissors2(x, result);
-          break;
-        case "paper":
-          Paper2(result);
-          break;
-        case "rock":
-          Rock2(result);
-          break;
-        case "spock":
-          Spock2(result);
-          break;
-        case "lizard":
-          Lizard2(result);
-          break;
-      }
-    } else {
-      endResult.textContent =
-        "Please enter a valid option, see above for details";
+  x = x.toLowerCase();
+  y = y.toLowerCase();
+  console.log("two players");
+  if (choices.includes(x) && choices.includes(y)) {
+    switch (x) {
+      case "scissors":
+        Scissors2(x, y);
+        break;
+      case "paper":
+        Paper2(x, y);
+        break;
+      case "rock":
+        Rock2(x, y);
+        break;
+      case "spock":
+        console.log(y);
+        Spock2(x, y);
+        break;
+      case "lizard":
+        Lizard2(x, y);
+        break;
     }
-  } while (!gameOver);
-  if (ComputerScore > winningScores[z] / 2) {
-    endResult.innerText = "The computer has won, better luck next time!";
-    ResetGame();
-  } else if (UserScore > winningScores[z] / 2) {
-    endResult.innerText = "You beat the computer, congratulations!";
-    ResetGame();
+  } else {
+    endResult.textContent =
+      "Please enter a valid option, see above for details";
+  }
+  if (gameOver) {
+    if (ComputerScore > winningScores[z] / 2) {
+      endResult.innerText = "Player 2 Has Won!";
+      ResetGame();
+    } else if (UserScore > winningScores[z] / 2) {
+      endResult.innerText = "Player 1 is the winner!";
+      ResetGame();
+    }
   }
 };
 const Scissors2 = (player1, player2) => {
@@ -258,6 +265,88 @@ const Scissors2 = (player1, player2) => {
     (player1 == "scissors" && player2 == "rock") ||
     player2 == "spock"
   ) {
+    endResult.textContent = "Player 1 Loses!";
+    ComputerScore++;
+    CPUScore.textContent = `Player 2 Score: ${ComputerScore}`;
+  } else {
+    endResult.textContent = "Player 1 Wins!";
+    UserScore++;
+    userScore.textContent = `Player 1 Score: ${UserScore}`;
+  }
+  if (ComputerScore > winningScores[z] / 2) {
+    gameOver = true;
+  } else if (UserScore > winningScores[z] / 2) {
+    gameOver = true;
+  }
+};
+
+const Paper2 = (player1, player2) => {
+  if (player1 === player2) {
+    endResult.textContent = "You tied";
+  } else if (
+    (player1 == "paper" && player2 == "scissors") ||
+    player2 == "lizard"
+  ) {
+    endResult.textContent = "Player 1 Loses!";
+    ComputerScore++;
+    CPUScore.textContent = `Player 2 Score: ${ComputerScore}`;
+  } else {
+    endResult.textContent = "Player 1 Wins!";
+    UserScore++;
+    userScore.textContent = `Player 1 Score: ${UserScore}`;
+  }
+  if (ComputerScore > winningScores[z] / 2) {
+    gameOver = true;
+  } else if (UserScore > winningScores[z] / 2) {
+    gameOver = true;
+  }
+};
+const Lizard2 = (player1, player2) => {
+  if (player1 === player2) {
+    endResult.textContent = "You tied";
+  } else if (
+    (player1 == "lizard" && player2 == "scissors") ||
+    player2 == "rock"
+  ) {
+    endResult.textContent = "Player 1 Loses!";
+    ComputerScore++;
+    CPUScore.textContent = `Player 2 Score: ${ComputerScore}`;
+  } else {
+    endResult.textContent = "Player 1 Wins!";
+    UserScore++;
+    userScore.textContent = `Player 1 Score: ${UserScore}`;
+  }
+  if (ComputerScore > winningScores[z] / 2) {
+    gameOver = true;
+  } else if (UserScore > winningScores[z] / 2) {
+    gameOver = true;
+  }
+};
+const Spock2 = (player1, player2) => {
+  if (player1 == "spock" && player2 == "spock") {
+    endResult.textContent = "You tied";
+  } else if (
+    (player1 == "spock" && player2 == "lizard") ||
+    player2 == "paper"
+  ) {
+    endResult.textContent = "Player 1 Loses!";
+    ComputerScore++;
+    CPUScore.textContent = `Player 2 Score: ${ComputerScore}`;
+  } else {
+    endResult.textContent = "Player 1 Wins!";
+    UserScore++;
+    userScore.textContent = `Player 1 Score: ${UserScore}`;
+  }
+  if (ComputerScore > winningScores[z] / 2) {
+    gameOver = true;
+  } else if (UserScore > winningScores[z] / 2) {
+    gameOver = true;
+  }
+};
+const Rock2 = (player1, player2) => {
+  if (player1 === player2) {
+    endResult.textContent = "You tied";
+  } else if ((player1 == "rock" && player2 == "paper") || player2 == "spock") {
     endResult.textContent = "Player 1 Loses!";
     ComputerScore++;
     CPUScore.textContent = `Player 2 Score: ${ComputerScore}`;
