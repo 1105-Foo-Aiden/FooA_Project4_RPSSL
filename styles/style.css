@@ -1,5 +1,27 @@
-.centerMe{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-} 
+@import url(https://fonts.googleapis.com/css?family=Playfair+Display:regular,500,600,700,800,900,italic,500italic,600italic,700italic,800italic,900italic);
+
+.centerMe {
+  display: flex;
+  justify-content: center;
+}
+img {
+  border-radius: 15px;
+}
+body {
+  background-color: lightblue;
+  font-family: "Playfair Display", serif;
+}
+input {
+  border-radius: 8px;
+  height: 40px;
+  width: 225px;
+  
+}
+button {
+  height: 110%;
+  width: 35%;
+  background-color: black;
+  color: white;
+  border-radius: 10px;
+  height: 45px;
+}

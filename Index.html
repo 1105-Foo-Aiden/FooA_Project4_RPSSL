@@ -10,53 +10,67 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display:regular,500,600,700,800,900,italic,500italic,600italic,700italic,800italic,900italic"
+      rel="stylesheet"
+    />
   </head>
   <link rel="stylesheet" href="./styles/style.css" />
   <body>
     <div class="container-fluid">
       <div class="col centerMe">
         <img
-        src="./Assets/RPSLS.jpeg"
-        alt="Da Rules: Rock beats Paper and Lizard, Spock beats Scissors and Rock, Paper beats rock and Spock, Lizard beats Spock and paper, and scissors beats paper and lizard "
-        
+          src="./Assets/RPSLS.jpeg"
+          alt="Da Rules: Rock beats Paper and Lizard, Spock beats Scissors and Rock, Paper beats rock and Spock, Lizard beats Spock and paper, and scissors beats paper and lizard "
         />
       </div>
-      <br>
+      <br />
       <div class="col centerMe">
-        <button id="difficulty" class="btn btn-dark">Best of 1</button>
+        <button id="difficulty">Best of 1</button>
       </div>
-      <div class="col centerMe">
-        <button id="Player2Btn" class="btn btn-dark">Versus Player</button>
+      <br />
+      <div class="row">
+        <div class="col centerMe">
+          <button id="Player2Btn">Versus Player</button>
+        </div>
       </div>
+      <div class="row">
+        <div class="col" style="padding-left: 7%">
+          <h1 style="font-size: 70px">Player 1</h1>
+        </div>
+        <div class="col"></div>
+        <div class="col" style="padding-right: 4.85%">
+          <h1 id="player2Txt" style="font-size: 70px"></h1>
+        </div>
+      </div>
+
       <br /><br />
-      <div class="row centerMe">
-        <div class="col" style="padding-right: 30%">
+      <div class="row">
+        <div class="col" style="padding-left: 7%">
           <input
             type="text"
             id="userSelection"
             placeholder="Please enter your choice"
-           
-            />
+          />
         </div>
-        <br>
-        <div class="col centerMe">
+        <div class="col centerMe" style="padding-right: 5.5%">
           <input
-          type="text"
-          id="player2Selection"
-          placeholder="Please enter your choice"
-        />
+            type="text"
+            id="player2Selection"
+            placeholder="Please enter your choice"
+          />
         </div>
       </div>
       <br />
-      <div class="row centerMe">
+      <div class="row">
         <div class="col">
-          <h1 id="userScore">Your Score:</h1>
+          <h1 id="userScore" style="padding-left: 20%"></h1>
         </div>
         <div class="col">
           <h1 id="endResult"></h1>
         </div>
         <div class="col">
-          <h1 id="CPUScore">Computer score:</h1>
+          <h1 id="CPUScore" ></h1>
         </div>
       </div>
     </div>
