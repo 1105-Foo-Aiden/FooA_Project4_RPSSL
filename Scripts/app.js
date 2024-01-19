@@ -22,7 +22,7 @@ player2Input.style.display = "none";
 player2.addEventListener("click", () => {
   ComputerScore = 0;
   UserScore = 0;
-  ResetGame()
+  ResetGame();
   if (!player2Bool) {
     player2Bool = true;
     player2.textContent = "Versus CPU";
@@ -124,10 +124,10 @@ const OnePlayerGame = (x) => {
   }
   if (gameOver) {
     if (ComputerScore > winningScores[z] / 2) {
-      endResult.innerText = `The computer picked ${result} while you picked ${x}. The computer has won, better luck next time!`;
+      endResult.innerText = `The computer picked ${result} while you picked ${x}. \n The computer has won. \n Better luck next time!`;
       ResetGame();
     } else if (UserScore > winningScores[z] / 2) {
-      endResult.textContent = `The computer picked ${result} while you picked ${x}. You beat the computer, congratulations!`;
+      endResult.innerText = `The computer picked ${result} while you picked ${x}. \n You beat the computer. \n Congratulations!`;
       ResetGame();
     }
   }
@@ -188,7 +188,7 @@ const Rock = (ComputerChoice, x) => {
   }
 };
 const Spock = (ComputerChoice, x) => {
-  if ("scissors" == ComputerChoice) {
+  if ("spock" == ComputerChoice) {
     endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You tied`;
   } else if (ComputerChoice == "paper" || ComputerChoice == "lizard") {
     endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You lose`;
@@ -206,7 +206,7 @@ const Spock = (ComputerChoice, x) => {
   }
 };
 const Lizard = (ComputerChoice, x) => {
-  if ("scissors" == ComputerChoice) {
+  if ("lizard" == ComputerChoice) {
     endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You tied`;
   } else if (ComputerChoice == "rock" || ComputerChoice == "scissors") {
     endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You lose`;
@@ -306,7 +306,7 @@ const Paper2 = (player1, player2) => {
 };
 const Lizard2 = (player1, player2) => {
   if (player1 === player2) {
-    endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2}, you both tied`
+    endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2}, you both tied`;
   } else if (
     (player1 == "lizard" && player2 == "scissors") ||
     player2 == "rock"
@@ -327,7 +327,7 @@ const Lizard2 = (player1, player2) => {
 };
 const Spock2 = (player1, player2) => {
   if (player1 == "spock" && player2 == "spock") {
-    endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2}, you both tied`
+    endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2}, you both tied`;
   } else if (
     (player1 == "spock" && player2 == "lizard") ||
     player2 == "paper"
@@ -348,7 +348,7 @@ const Spock2 = (player1, player2) => {
 };
 const Rock2 = (player1, player2) => {
   if (player1 === player2) {
-    endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2}, you both tied`
+    endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2}, you both tied`;
   } else if ((player1 == "rock" && player2 == "paper") || player2 == "spock") {
     endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2} Player 2 Wins!`;
     ComputerScore++;
