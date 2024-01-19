@@ -86,7 +86,7 @@ const ResetGame = () => {
   } else {
     CPUScore.textContent = `Computer Score: ${ComputerScore}`;
   }
-
+  userInput.value = "";
   userScore.textContent = `Player 1 Score: ${UserScore}`;
   ComputerScore = 0;
   UserScore = 0;
@@ -103,19 +103,19 @@ const OnePlayerGame = (x) => {
     result = result.toLowerCase();
     switch (x) {
       case "scissors":
-        Scissors(result);
+        Scissors(result, x);
         break;
       case "paper":
-        Paper(result);
+        Paper(result, x);
         break;
       case "rock":
-        Rock(result);
+        Rock(result, x);
         break;
       case "spock":
-        Spock(result);
+        Spock(result, x);
         break;
       case "lizard":
-        Lizard(result);
+        Lizard(result, x);
         break;
     }
   } else {
@@ -124,24 +124,24 @@ const OnePlayerGame = (x) => {
   }
   if (gameOver) {
     if (ComputerScore > winningScores[z] / 2) {
-      endResult.innerText = `The computer picked ${result}. The computer has won, better luck next time!`;
+      endResult.innerText = `The computer picked ${result} while you picked ${x}. The computer has won, better luck next time!`;
       ResetGame();
     } else if (UserScore > winningScores[z] / 2) {
-      endResult.textContent = `The computer picked ${result}. You beat the computer, congratulations!`;
+      endResult.textContent = `The computer picked ${result} while you picked ${x}. You beat the computer, congratulations!`;
       ResetGame();
     }
   }
 };
 
-const Scissors = (ComputerChoice) => {
+const Scissors = (ComputerChoice, x) => {
   if ("scissors" == ComputerChoice) {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You tied`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You tied`;
   } else if (ComputerChoice == "rock" || ComputerChoice == "spock") {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You lose`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You lose`;
     ComputerScore++;
     CPUScore.textContent = `Computer Score: ${ComputerScore}`;
   } else {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You win!`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You win!`;
     UserScore++;
     userScore.textContent = `Player 1 Score: ${UserScore}`;
   }
@@ -151,15 +151,15 @@ const Scissors = (ComputerChoice) => {
     gameOver = true;
   }
 };
-const Paper = (ComputerChoice) => {
+const Paper = (ComputerChoice, x) => {
   if ("paper" == ComputerChoice) {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You tied`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You tied`;
   } else if (ComputerChoice == "scissors" || ComputerChoice == "lizard") {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You lose`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You lose`;
     ComputerScore++;
     CPUScore.textContent = `Computer Score: ${ComputerScore}`;
   } else {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You win!`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You win!`;
     UserScore++;
     userScore.textContent = `Player 1 Score: ${UserScore}`;
   }
@@ -169,15 +169,15 @@ const Paper = (ComputerChoice) => {
     gameOver = true;
   }
 };
-const Rock = (ComputerChoice) => {
+const Rock = (ComputerChoice, x) => {
   if ("rock" == ComputerChoice) {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You tied`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You tied`;
   } else if (ComputerChoice == "paper" || ComputerChoice == "spock") {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You lose`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You lose`;
     ComputerScore++;
     CPUScore.textContent = `Computer Score: ${ComputerScore}`;
   } else {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You win!`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You win!`;
     UserScore++;
     userScore.textContent = `Player 1 Score: ${UserScore}`;
   }
@@ -187,15 +187,15 @@ const Rock = (ComputerChoice) => {
     gameOver = true;
   }
 };
-const Spock = (ComputerChoice) => {
+const Spock = (ComputerChoice, x) => {
   if ("scissors" == ComputerChoice) {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You tied`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You tied`;
   } else if (ComputerChoice == "paper" || ComputerChoice == "lizard") {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You lose`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You lose`;
     ComputerScore++;
     CPUScore.textContent = `Computer Score: ${ComputerScore}`;
   } else {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You win!`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You win!`;
     UserScore++;
     userScore.textContent = `Player 1 Score: ${UserScore}`;
   }
@@ -205,15 +205,15 @@ const Spock = (ComputerChoice) => {
     gameOver = true;
   }
 };
-const Lizard = (ComputerChoice) => {
+const Lizard = (ComputerChoice, x) => {
   if ("scissors" == ComputerChoice) {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You tied`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You tied`;
   } else if (ComputerChoice == "rock" || ComputerChoice == "scissors") {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You lose`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You lose`;
     ComputerScore++;
     CPUScore.textContent = `Computer Score: ${ComputerScore}`;
   } else {
-    endResult.textContent = `The computer picked ${ComputerChoice}. You win!`;
+    endResult.textContent = `The computer picked ${ComputerChoice} while you picked ${x}. You win!`;
     UserScore++;
     userScore.textContent = `Player 1 Score: ${UserScore}`;
   }
