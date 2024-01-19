@@ -8,12 +8,9 @@ let textChanger = document.getElementById('player2Txt')
 let result;
 let choices = ["rock", "paper", "scissors", "spock", "lizard"];
 let endResult = document.getElementById("endResult");
-let ComputerScore = 0;
-let UserScore = 0;
+let ComputerScore = 0, UserScore = 0 , z = 0;
 let winningScores = [1, 5, 7];
-let z = 0;
-let gameOver = false;
-let player2Bool = false;
+let gameOver = false, player2Bool = false;
 var player1;
 
 CPUScore.textContent = `Score: ${ComputerScore}`;
@@ -60,7 +57,6 @@ const APICall = async () => {
     "https://scottsrpsls.azurewebsites.net/api/RockPaperScissors/GetRandomOption"
   );
   result = await promise.text();
-  console.log(result);
 };
 
 userInput.addEventListener("keydown", e => {
@@ -85,11 +81,7 @@ player2Input.addEventListener("keydown", e => {
 
 const ResetGame = () => {
   gameOver = false;
-  if (player2Bool) {
-    CPUScore.textContent = `Score: ${ComputerScore}`;
-  } else {
-    CPUScore.textContent = `Score: ${ComputerScore}`;
-  }
+  CPUScore.textContent = `Score: ${ComputerScore}`;
   userInput.value = "";
   userScore.textContent = `Score: ${UserScore}`;
   ComputerScore = 0;
@@ -223,8 +215,6 @@ const Lizard = (ComputerChoice, x) => {
   } 
 };
 
-// If there are 2 players
-
 const TwoPlayerGame = (x, y) => {
   x = x.toLowerCase();
   y = y.toLowerCase();
@@ -266,9 +256,7 @@ const Scissors2 = (player1, player2) => {
   if (player1 === player2) {
     endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2}, you both tied`;
   } else if (
-    (player1 == "scissors" && player2 == "rock") ||
-    player2 == "spock"
-  ) {
+    (player1 == "scissors" && player2 == "rock") || player2 == "spock") {
     endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2} Player 2 Wins!`;
     ComputerScore++;
     CPUScore.textContent = `Score: ${ComputerScore}`;
@@ -286,9 +274,7 @@ const Paper2 = (player1, player2) => {
   if (player1 === player2) {
     endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2}, you both tied`;
   } else if (
-    (player1 == "paper" && player2 == "scissors") ||
-    player2 == "lizard"
-  ) {
+    (player1 == "paper" && player2 == "scissors") || player2 == "lizard") {
     endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2} Player 2 Wins!`;
     ComputerScore++;
     CPUScore.textContent = `Score: ${ComputerScore}`;
@@ -306,9 +292,7 @@ const Lizard2 = (player1, player2) => {
   if (player1 === player2) {
     endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2}, you both tied`;
   } else if (
-    (player1 == "lizard" && player2 == "scissors") ||
-    player2 == "rock"
-  ) {
+    (player1 == "lizard" && player2 == "scissors") || player2 == "rock") {
     endResult.textContent = `Player 1 picked ${player1} and player 2 picked ${player2} Player 2 Wins!`;
     ComputerScore++;
     CPUScore.textContent = `Score: ${ComputerScore}`;
