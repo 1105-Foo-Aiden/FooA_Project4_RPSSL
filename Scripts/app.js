@@ -150,11 +150,9 @@ const Scissors = (ComputerChoice, x) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
 
 const Paper = (ComputerChoice, x) => {
@@ -169,11 +167,9 @@ const Paper = (ComputerChoice, x) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
 
 const Rock = (ComputerChoice, x) => {
@@ -188,11 +184,9 @@ const Rock = (ComputerChoice, x) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
 
 const Spock = (ComputerChoice, x) => {
@@ -207,11 +201,9 @@ const Spock = (ComputerChoice, x) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
 
 const Lizard = (ComputerChoice, x) => {
@@ -226,11 +218,9 @@ const Lizard = (ComputerChoice, x) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
 
 // If there are 2 players
@@ -287,11 +277,9 @@ const Scissors2 = (player1, player2) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
 
 const Paper2 = (player1, player2) => {
@@ -309,11 +297,9 @@ const Paper2 = (player1, player2) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
 
 const Lizard2 = (player1, player2) => {
@@ -331,11 +317,9 @@ const Lizard2 = (player1, player2) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
 
 const Spock2 = (player1, player2) => {
@@ -353,11 +337,9 @@ const Spock2 = (player1, player2) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
 
 const Rock2 = (player1, player2) => {
@@ -372,9 +354,7 @@ const Rock2 = (player1, player2) => {
     UserScore++;
     userScore.textContent = `Score: ${UserScore}`;
   }
-  if (ComputerScore > winningScores[z] / 2) {
+  if (ComputerScore > winningScores[z] / 2 || UserScore > winningScores[z] / 2) {
     gameOver = true;
-  } else if (UserScore > winningScores[z] / 2) {
-    gameOver = true;
-  }
+  } 
 };
