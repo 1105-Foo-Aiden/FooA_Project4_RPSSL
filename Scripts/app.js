@@ -12,6 +12,7 @@ let ComputerScore = 0, UserScore = 0 , z = 0;
 let winningScores = [1, 5, 7];
 let gameOver = false, player2Bool = false;
 var player1;
+const ComputerChoices = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
 
 CPUScore.textContent = `Score: ${ComputerScore}`;
 userScore.textContent = `Score: ${UserScore}`;
@@ -52,10 +53,8 @@ difficulty.addEventListener("click", () => {
 });
 
 const APICall = async () => {
-  const promise = await fetch(
-    "https://scottsrpsls.azurewebsites.net/api/RockPaperScissors/GetRandomOption"
-  );
-  result = await promise.text();
+  let randNum = Math.floor(Math.random()* 6);
+  return ComputerChoices[randNum]
 };
 
 userInput.addEventListener("keydown", e => {
@@ -91,7 +90,8 @@ const OnePlayerGame = async x => {
   CPUScore.textContent = `Score: ${ComputerScore}`;
   const ComputerChoice = await APICall()
   x = x.toLowerCase();
-  result = await ComputerChoice.toLowerCase();
+  result = ComputerChoice.toLowerCase();
+  console.log(result)
 
   if (choices.includes(x)) {
     switch (x) {
