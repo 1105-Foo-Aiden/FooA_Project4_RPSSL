@@ -4,24 +4,40 @@
   display: flex;
   justify-content: center;
 }
+
+h1{
+  font-size: 70px;
+}
+
 img {
   border-radius: 15px;
 }
+
 body {
-  background-color: lightblue;
+  background-color: #16292e;
   font-family: "Playfair Display", serif;
+  color: white;
 }
+
 input {
   border-radius: 8px;
   height: 40px;
   width: 225px;
-  
+  background-color: beige;
 }
+
 button {
-  height: 110%;
-  width: 35%;
+  height: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
   background-color: black;
   color: white;
+  font-size: 30px;
   border-radius: 10px;
-  height: 45px;
+}
+
+@media (max-width: 725px) {
+  h1{
+    font-size: 40px;
+  }
 }

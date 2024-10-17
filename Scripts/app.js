@@ -45,7 +45,6 @@ difficulty.addEventListener("click", () => {
   ResetGame();
   z++;
   difficulty.innerText = `Best of ${winningScores[z]}`;
-
   if (z == winningScores.length) {
     z = 0;
     difficulty.innerText = `Best of ${winningScores[0]}`;
@@ -77,8 +76,6 @@ player2Input.addEventListener("keydown", e => {
   }
 });
 
-
-
 const ResetGame = () => {
   gameOver = false;
   CPUScore.textContent = `Score: ${ComputerScore}`;
@@ -92,12 +89,11 @@ const ResetGame = () => {
 const OnePlayerGame = async x => {
   userScore.textContent = `Score: ${UserScore}`;
   CPUScore.textContent = `Score: ${ComputerScore}`;
-  await APICall();
+  const ComputerChoice = await APICall()
   x = x.toLowerCase();
-  result = result.toLowerCase();
+  result = await ComputerChoice.toLowerCase();
 
   if (choices.includes(x)) {
-    result = result.toLowerCase();
     switch (x) {
       case "scissors":
         Scissors(result, x);

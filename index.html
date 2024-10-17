@@ -18,47 +18,42 @@
   <link rel="stylesheet" href="./styles/style.css" />
   <body>
     <div class="container-fluid">
-      <div class="col centerMe" style="padding-right: 8.5%;">
+      <div class="col centerMe" style="padding-right: 8.5%">
         <img
           src="./Assets/RPSLS.jpeg"
           alt="Da Rules: Rock beats Paper and Lizard, Spock beats Scissors and Rock, Paper beats rock and Spock, Lizard beats Spock and paper, and scissors beats paper and lizard "
         />
       </div>
       <br />
-      <div class="col centerMe" style="padding-right: 8%;">
+      <div class="col centerMe" style="padding-right: 8%">
         <button id="difficulty">Best of 1</button>
       </div>
       <br />
       <div class="row">
-        <div class="col centerMe" style="padding-right: 8.5%;">
+        <div class="col centerMe" style="padding-right: 8.5%">
           <button id="Player2Btn">Versus Player</button>
         </div>
       </div>
       <div class="row">
-        <div class="col" style="padding-left: 7%">
-          <h1 style="font-size: 70px">Player 1</h1>
-        </div>
-        <div class="col"></div>
-        <div class="col" style="padding-right: 4.85%">
-          <h1 id="player2Txt" style="font-size: 70px"></h1>
-        </div>
-      </div>
-
-      <br /><br />
-      <div class="row">
-        <div class="col" style="padding-left: 7%">
-          <input
-            type="text"
-            id="userSelection"
-            placeholder="Please enter your choice"
-          />
-        </div>
-        <div class="col centerMe" style="padding-right: 5.5%">
-          <input
-            type="text"
-            id="player2Selection"
-            placeholder="Please enter your choice"
-          />
+        <div class="col" style="padding-left: 7%;">
+          <h1>Player 1</h1>
+          <div class="col">
+            <input
+              type="text"
+              id="userSelection"
+              placeholder="Please enter your choice"
+            />
+          </div>
+          <div class="col" style="padding-right: 4.85%">
+            <h1 id="player2Txt"></h1>
+            <div class="col">
+              <input
+                type="text"
+                id="player2Selection"
+                placeholder="Please enter your choice"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <br />
@@ -70,7 +65,7 @@
           <h1 id="endResult"></h1>
         </div>
         <div class="col">
-          <h1 id="CPUScore" ></h1>
+          <h1 id="CPUScore"></h1>
         </div>
       </div>
     </div>
